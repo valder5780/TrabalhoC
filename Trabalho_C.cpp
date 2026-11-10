@@ -47,7 +47,9 @@ float Depositar()
 		maiorDeposito = valor;
 	}
 	
+	
 	saldo += valor;
+	printf("saldo resultante: %2.f\n", saldo);
 	
 	return saldo;
 }
@@ -55,6 +57,15 @@ float Depositar()
 float Sacar()
 {
 	float valor;
+	int respSenha;
+	
+	printf("Digite sua senha \n:");
+	scanf("%d", &respSenha);
+	if(senha != respSenha)
+	{
+		printf("Senha incorreta, operação cancelada!");
+		return 0;
+	}
 	
 	do
 	{
@@ -67,7 +78,11 @@ float Sacar()
 		}
 	} while(valor > saldo);
 	
+	
 	saldo -= valor;
+	
+	printf("saldo resultante: %2.f\n", saldo);
+
 	
 	return saldo;
 }
@@ -84,7 +99,7 @@ int main()
 	{
 		saldo = 500;
 	}
-	
+
 	while(true)
 	{
 		printf("O que voce gostaria de fazer? \n 1- Depositar\n 2- Sacar\n 3- Consultar saldo e estatisticas\n 4- sair\n : ");
@@ -105,7 +120,7 @@ int main()
 		else if(resp == 4)
 		{
 			printf("Obrigado por usar nosso banco!!");
-			return 0;
+			break;
 		}
 			
 	}
